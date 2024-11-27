@@ -4,7 +4,10 @@ import (
 	"log"
 
 	"github.com/joho/godotenv"
+	"github.com/sheershjindal/visitor-management-system/models"
 )
+
+var CORSConfig models.CORSConfig
 
 type AppConfig struct {
 	SQLDB *SQLConfig
@@ -20,6 +23,11 @@ func LoadEnv() {
 // Initialize initializes all configurations
 func Initialize() *AppConfig {
 	LoadEnv()
+	InitializeLogging()
+
+	// CORSConfig = models.CORSConfig{
+	// 	//
+	// }
 
 	// Initialize SQL database
 	sqlDB := InitSQL()

@@ -33,9 +33,9 @@ func NewAppRegistry(appConfig *config.AppConfig) *AppRegistry {
 func (a *AppRegistry) RegisterAllRoutes(mux *http.ServeMux) {
 	// Apply global middlewares
 	globalMiddlewares := []func(http.Handler) http.Handler{
-		middlewares.CORSMiddleware,
-		middlewares.MetadataMiddleware,
 		middlewares.LoggingMiddleware,
+		middlewares.MetadataMiddleware,
+		middlewares.CORSMiddleware,
 	}
 
 	// Recursively register routes and groups

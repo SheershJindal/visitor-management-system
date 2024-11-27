@@ -29,3 +29,6 @@ go.work.sum
 
 # .toml
 .air.toml
+
+# Log files
+*.log
